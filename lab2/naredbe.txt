@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+USERNAME='sui2'
+PASSWORD='Internet1'
+
+# Download files
+wget http://public.tel.fer.hr/sui/zadatak2.tar.gz
+tar xf zadatak2.tar.gz && rm zadatak2.tar.gz
+cd zadatak2
+
+# Task 1
+echo "/usr/sbin/adduser sui sudo" > /tmp/smth
+sudo cat /etc/sudoers | grep '%sudo' && rm /tmp/smth
+
+# Task 2
+sudo adduser ${USERNAME}
+sudo cat /etc/shadow | grep -E "${USERNAME}|sui" | cut -d: -f2 # print passwords
+sudo cat /etc/shadow | sed -nE "s/${USERNAME}\:\$6\$([^\$]+)\$.*/\1/p" | xargs mkpasswd -m sha-512 ${PASSWORD}
+
+# Task 3
+sudo rm /root/.john/john.pot # clean start
+for passfile in pass_*; do
+    printf "$passfile => "
+    { time sudo john $passfile > /dev/null; } 2>&1 | grep real | awk '{print $2}'
+done
+
+# Task 4
+strings malware1.txt | less
+strings malware2.txt | less
