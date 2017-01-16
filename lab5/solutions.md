@@ -65,18 +65,24 @@ java -jar decompiler.jar -jar classes-dex2jar.jar -o lab5_src
 
 ### CutePuppiesWallpaper.java
  * glavna klasa, pokreće se intent `BotService`
+ 
 ### BotService.java
  * pokreće `BotClient`, glavni parametri su ime servera i port (kite.dyndns-ip.com, 1500)
+ 
 ### BotClient.java
  * pokreće `BotUpdater`
  * pokreće `BotWorker`
  * spaja se na server _kite.dyndns-ip.com:1500_
  * prima naredbe od servera te mu vraća tražene rezultate (povijest iz preglednika, 
  	instalirane aplikacije, lokaciju, primljene SMS-ove, ID uređaja)
+  
 ### BotWorker.java
  * izvršava sve gore navedene akcije koje mu `BotClient` naredi
  * interno koristi `BotSMSHandler` i `BotLocationListener`
+ 
 ### BotSMSHandler.java
  * čeka da dođe SMS te sprema od koga i što je došlo u listu stringova
+ 
 ### BotLocationHandler.java
  * čeka da dođe do promjene lokacije te ju spremi
+ 
