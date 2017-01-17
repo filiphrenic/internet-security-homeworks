@@ -1,5 +1,10 @@
 # Permissions
 
+```bash
+apktool d lab5.apk
+less lab5/AndoridManifest.xml
+```
+
 ### RECEIVE_BOOT_COMPLETED
  * dobiva obavijest kad se sustav podigne
    * ovo joj ne treba
