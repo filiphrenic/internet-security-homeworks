@@ -1,5 +1,7 @@
-# 5. laboratorijska vježba
-# Reverzni inženjering Android aplikacije
+# Lab 5
+# Android reverse engineering
+
+> The text is in Croatian, but the assignment was to look at the app's manifest file, decompile it and analyze source.
 
 U ovoj vježbi analizirat će se maliciozna "wallpaper" aplikacija za operacijski sustav Android.
 
